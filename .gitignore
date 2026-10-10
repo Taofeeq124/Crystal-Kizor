@@ -2,6 +2,15 @@ node_modules
 dist
 .DS_Store
 *.log
-# Original high-resolution source assets (~120 MB). Optimised versions are
-# committed in public/images; keep the originals in shared storage instead.
-Images/
+.env
+.env.*
+
+# Original high-resolution source assets (~120 MB) live in the top-level
+# /Images folder and are only needed to run `npm run images`.
+# The leading slash anchors this rule to the project root. Without it, Git on
+# case-insensitive systems (macOS/Windows) also matches public/images/ and
+# silently drops every production image from the repository.
+/Images/
+
+# Optimised production images are always tracked.
+!/public/images/
