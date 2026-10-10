@@ -66,6 +66,24 @@
   background: var(--espresso-2);
 }
 
+/* Supplied initiative logos have white grounds; multiply melts them into ivory. */
+.stage__logo {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 12%;
+  background: var(--ivory);
+}
+
+.stage__logo img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
 /* A fine circle echoing the circular monogram in the logo collection. */
 .stage__ring {
   position: absolute;
@@ -154,12 +172,6 @@
   transition: transform var(--dur) var(--ease-out);
 }
 
-.initiative__abbr {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--taupe);
-}
-
 .initiative--core .initiative__name {
   font-size: clamp(2.4rem, 1.6rem + 3vw, 4.25rem);
 }
@@ -171,6 +183,22 @@
 .initiative__cta {
   justify-self: start;
   color: var(--ivory);
+}
+
+.initiative__logo {
+  justify-self: start;
+  padding: 0.9rem 1.1rem;
+  background: var(--ivory);
+}
+
+.initiative__logo img {
+  width: auto;
+  height: 3.5rem;
+  mix-blend-mode: multiply;
+}
+
+.initiative__mobile-image.initiative__mobile-image--wide {
+  aspect-ratio: 16 / 10;
 }
 
 .initiative__mobile-image {
@@ -215,7 +243,8 @@
     grid-column: 7 / -1;
   }
 
-  .initiative__mobile-image {
+  .initiative__mobile-image,
+  .initiative__logo {
     display: none;
   }
 

@@ -111,12 +111,12 @@ These items are needed before launch. None of them were invented on the site.
 | Item | Where to set it | Current behaviour |
 |------|-----------------|-------------------|
 | Studio COKA URL | `ecosystem[studio-coka].url` | "Ask about Studio COKA" → LinkedIn |
-| ELEvated URL | `ecosystem[elevated].url` | Enquiry fallback |
-| The Effective Architect (TEA) URL | `ecosystem[tea].url` | Enquiry fallback |
-| AKO Alliance URL | `ecosystem[ako].url` | Enquiry fallback |
-| Alive and Free URL | `ecosystem[alive-and-free].url` | Enquiry fallback |
+| ELEvated URL + product photography | `ecosystem[elevated].url` / `.image` | Enquiry fallback; panel uses the earth-and-timber dining **concept render** as a stand-in |
+| Alive and Free URL | `ecosystem[alive-and-free].url` | Enquiry fallback; panel uses a tree-canopy crop from the supplied front-garden photo |
 | Enquiry email | `contactEmail` | Enquiries go to LinkedIn |
-| Initiative logos | (would replace the typographic marks in the ecosystem panel) | Typographic marks |
+| ELEvated / Studio COKA / Alive and Free logos | add a `logo` key (see AKO and TEA) | Photography shown instead |
+
+Supplied and live: **AKO Alliance** (https://akoalliance.com/) and **TEA Architects** (https://tea-architects.co.uk/), both with logos.
 | Project name / location of the photographed home | `work.built` | Described generically as "a completed residence by Studio COKA" |
 | Status / authorship of the rendered concepts | `work.concepts` | Labelled "Concept visualisation" |
 
@@ -125,6 +125,8 @@ These items are needed before launch. None of them were invented on the site.
 - **Off-grid hospital.** The copy says her path "runs through Nigeria's first fully off-grid hospital", which follows the brief's wording. Her specific role isn't stated because it couldn't be verified publicly.
 - **Reuters Connect item.** The headline shown comes from the URL slug ("A Nigerian eye hospital redefines climate-smart design"). The page returned 403 to automated checks, and Reuters Connect may require a login. The site doesn't claim this report names Crystal.
 - **TEDx talk.** The title, event (TEDxPortHarcourt) and channel (TEDx Talks) were confirmed through YouTube's oEmbed API, which also reports the video as embeddable. The one-sentence introduction is framed as the question the title poses. Check that it matches the talk.
+- **TEA.** The brief described TEA as "The Effective Architect", an education platform. The supplied URL and logo are for **TEA Architects**, a RIBA Chartered practice in Bath, and the site doesn't mention Crystal. The page now uses the name and description from that website and groups TEA under "Build". Confirm Crystal's relationship to it.
+- **AKO Alliance.** The description follows akoalliance.com, which doesn't mention Crystal by name.
 - **Photographs.** The "Nature Home Images" photographs carry the STUDIO.COKA watermark and are presented as Studio COKA's built work. The "Nature Home Images 2" and "Community Centre" images are renders and are labelled as concepts.
 
 ## Key technical decisions

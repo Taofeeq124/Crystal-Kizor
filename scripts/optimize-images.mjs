@@ -45,6 +45,10 @@ const PHOTOS = {
 
   // Concept visualisations (renders)
   'earth-exterior': 'Nature Home Images 2 /1.png',
+  'earth-dining': 'Nature Home Images 2 /2.jpeg',
+
+  // Tree canopy cropped from the front-garden photograph (Alive and Free panel)
+  'canopy': { file: 'Nature Home Images/Front View with Tree shade.jpeg', extract: { left: 0, top: 0, width: 440, height: 550 } },
   'earth-bedroom': 'Nature Home Images 2 /4.jpeg',
   'earth-bath': 'Nature Home Images 2 /6.jpeg',
   'cc-courtyard': 'Community Centre Project Images/IMG_2105 2.JPG',
@@ -60,12 +64,34 @@ const LOGOS = {
   'logo-circle': 'Logos Varitions/SOCIAL PROFILE LOGO.png',
 };
 
+// Initiative logos, supplied with white backgrounds. Trimmed and kept as-is;
+// the page blends them onto ivory with mix-blend-mode: multiply.
+const INITIATIVE_LOGOS = {
+  'logo-ako': 'Initiative Logos/AKO Alliance.webp',
+  'logo-tea': 'Initiative Logos/TEA Architects.png',
+};
+
+async function initiativeLogo(key, rel, manifest) {
+  const file = `${key}.webp`;
+  const { data, info } = await sharp(path.join(SRC, rel))
+    .flatten({ background: '#ffffff' })
+    .trim({ background: '#ffffff', threshold: 20 })
+    .extend({ top: 24, bottom: 24, left: 24, right: 24, background: '#ffffff' })
+    .resize({ width: 900, withoutEnlargement: true })
+    .webp({ quality: 86 })
+    .toBuffer({ resolveWithObject: true });
+  await fs.writeFile(path.join(OUT, file), data);
+  manifest[key] = { width: info.width, height: info.height, src: `/images/${file}` };
+}
+
 const INKS = { ink: [39, 20, 7], ivory: [247, 243, 237] };
 
 const hex = ({ r, g, b }) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
 
-async function photo(key, rel, manifest) {
-  const input = sharp(path.join(SRC, rel)).rotate();
+async function photo(key, spec, manifest) {
+  const { file, extract } = typeof spec === 'string' ? { file: spec } : spec;
+  let input = sharp(path.join(SRC, file)).rotate();
+  if (extract) input = sharp(await input.extract(extract).toBuffer());
   const { width, height } = await input.metadata();
   const { dominant } = await input.clone().stats();
   const widths = WIDTHS.filter((w) => w < width).concat(width > WIDTHS.at(-1) ? [] : [width]);
@@ -168,6 +194,7 @@ await fs.mkdir(OUT, { recursive: true });
 const manifest = {};
 for (const [k, rel] of Object.entries(PHOTOS)) await photo(k, rel, manifest);
 for (const [k, rel] of Object.entries(LOGOS)) await logo(k, rel, manifest);
+for (const [k, rel] of Object.entries(INITIATIVE_LOGOS)) await initiativeLogo(k, rel, manifest);
 await icons();
 await fs.writeFile(MANIFEST, JSON.stringify(manifest, null, 2) + '\n');
 console.log(`Wrote ${Object.keys(manifest).length} assets to public/images`);

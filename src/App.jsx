@@ -7,6 +7,7 @@ import Work from './sections/Work.jsx';
 import Talks from './sections/Talks.jsx';
 import Contact from './sections/Contact.jsx';
 import Footer from './sections/Footer.jsx';
+import BackToTop from './components/BackToTop.jsx';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </MotionConfig>
   );
 }

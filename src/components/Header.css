@@ -12,7 +12,6 @@
   align-items: center;
   gap: 2rem;
   height: var(--header-h);
-  transition: transform var(--dur) var(--ease-out);
 }
 
 /* Background lives on a pseudo-element so it can fade without affecting text. */
@@ -24,16 +23,11 @@
   background: var(--ivory);
   border-bottom: 1px solid var(--line-light);
   opacity: 0;
-  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+  transition: opacity var(--dur) var(--ease-out);
 }
 
 .site-header.is-scrolled::before {
   opacity: 1;
-}
-
-.site-header.is-hidden .site-header__bar,
-.site-header.is-hidden::before {
-  transform: translateY(-100%);
 }
 
 .site-header.is-open::before {
@@ -206,12 +200,5 @@
 
   .menu-toggle {
     display: block;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .site-header.is-hidden .site-header__bar,
-  .site-header.is-hidden::before {
-    transform: none;
   }
 }

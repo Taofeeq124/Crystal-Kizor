@@ -5,6 +5,7 @@ import Picture from '../components/Picture.jsx';
 import ArrowLink from '../components/ArrowLink.jsx';
 import { Eyebrow, Reveal, RevealLines, EASE } from '../components/motion.jsx';
 import { ecosystem } from '../content/site.js';
+import images from '../content/images.json';
 import { initiativeLink } from '../lib/links.js';
 import './Ecosystem.css';
 
@@ -44,8 +45,8 @@ export default function Ecosystem() {
           />
           <Reveal as="p" className="ecosystem__intro" delay={0.2}>
             Every initiative answers the same question from a different angle: how can design, knowledge and
-            community make everyday life measurably better? Studio COKA is where the ideas are built. The others
-            are where they are made, taught, spoken about and lived.
+            community make everyday life measurably better? Studio COKA and TEA Architects are where the ideas are
+            built. The others are where they are made, taught, spoken about and lived.
           </Reveal>
         </header>
 
@@ -62,7 +63,11 @@ export default function Ecosystem() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.9, ease: EASE }}
                 >
-                  {current.image ? (
+                  {current.logo ? (
+                    <div className="stage__logo">
+                      <img src={images[current.logo].src} alt="" width={images[current.logo].width} height={images[current.logo].height} />
+                    </div>
+                  ) : current.image ? (
                     <Picture name={current.image} alt="" sizes="36vw" className="stage__image" />
                   ) : (
                     <div className="stage__mark">
@@ -101,14 +106,25 @@ export default function Ecosystem() {
                     </p>
                     <h3 className="initiative__name display">
                       {item.name}
-                      {item.abbr && <span className="initiative__abbr"> ({item.abbr})</span>}
                     </h3>
-                    {item.core && item.image && (
+                    {item.logo && (
+                      <div className="initiative__logo">
+                        <img
+                          src={images[item.logo].src}
+                          alt={`${item.name} logo`}
+                          width={images[item.logo].width}
+                          height={images[item.logo].height}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    )}
+                    {!item.logo && item.image && (
                       <Picture
                         name={item.image}
-                        alt="The façade of a completed home by Studio COKA, with brick piers, timber screens and a planted terrace"
+                        alt={item.alt ?? ''}
                         sizes="90vw"
-                        className="initiative__mobile-image"
+                        className={`initiative__mobile-image ${item.core ? '' : 'initiative__mobile-image--wide'}`}
                       />
                     )}
                     <p className="initiative__text">{item.text}</p>

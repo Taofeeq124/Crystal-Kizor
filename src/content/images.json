@@ -90,6 +90,20 @@
     "src": "/images/earth-exterior-1024.webp",
     "srcSet": "/images/earth-exterior-720.webp 720w, /images/earth-exterior-1024.webp 1024w"
   },
+  "earth-dining": {
+    "width": 867,
+    "height": 1080,
+    "color": "#987858",
+    "src": "/images/earth-dining-867.webp",
+    "srcSet": "/images/earth-dining-720.webp 720w, /images/earth-dining-867.webp 867w"
+  },
+  "canopy": {
+    "width": 440,
+    "height": 550,
+    "color": "#181808",
+    "src": "/images/canopy-440.webp",
+    "srcSet": "/images/canopy-440.webp 440w"
+  },
   "earth-bedroom": {
     "width": 980,
     "height": 1080,
@@ -144,5 +158,15 @@
   "logo-circle": {
     "width": 282,
     "height": 284
+  },
+  "logo-ako": {
+    "width": 948,
+    "height": 648,
+    "src": "/images/logo-ako.webp"
+  },
+  "logo-tea": {
+    "width": 553,
+    "height": 148,
+    "src": "/images/logo-tea.webp"
   }
 }

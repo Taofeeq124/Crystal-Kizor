@@ -27,19 +27,14 @@ const sectionIds = nav.map((item) => item.href.slice(1));
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const active = useActiveSection(sectionIds);
   const reduce = useReducedMotion();
   const toggleRef = useRef(null);
   const menuRef = useRef(null);
   const { scrollY } = useScroll();
 
-  // Solid background once the page moves; tuck away while reading downwards.
-  useMotionValueEvent(scrollY, 'change', (y) => {
-    const prev = scrollY.getPrevious() ?? 0;
-    setScrolled(y > 24);
-    setHidden((was) => (y > 600 && y > prev + 4 ? true : y < prev - 4 ? false : was));
-  });
+  // The header stays fixed throughout; it gains a solid background once the page moves.
+  useMotionValueEvent(scrollY, 'change', (y) => setScrolled(y > 24));
 
   // Mobile menu: lock scroll, close on Escape, keep focus inside, restore focus.
   useEffect(() => {
@@ -78,7 +73,7 @@ export default function Header() {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
-  const state = [scrolled && 'is-scrolled', hidden && !open && 'is-hidden', open && 'is-open']
+  const state = [scrolled && 'is-scrolled', open && 'is-open']
     .filter(Boolean)
     .join(' ');
 

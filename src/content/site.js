@@ -77,9 +77,9 @@ export const philosophy = {
 
 /**
  * The ecosystem, ordered by relationship to the core practice.
- * `image` is optional — initiatives without supplied imagery use a
- * typographic mark rather than borrowed photography.
- * TODO(client): supply verified URLs (and logos, if available) for each `url: null`.
+ * `logo` (supplied initiative logo) takes precedence over `image`; items
+ * with neither use a typographic mark.
+ * TODO(client): supply verified URLs for each `url: null`.
  */
 export const ecosystem = [
   {
@@ -92,7 +92,19 @@ export const ecosystem = [
     cta: 'Visit Studio COKA',
     url: null,
     image: 'home-facade',
+    alt: 'The façade of a completed home by Studio COKA, with brick piers, timber screens and a planted terrace',
     core: true,
+  },
+  {
+    id: 'tea',
+    strand: 'Build',
+    name: 'TEA Architects',
+    short: 'TEA Architects',
+    mark: 'TEA',
+    text: 'A RIBA Chartered architecture practice in Bath, designing new homes, extensions, renovations and commercial projects for clients across Somerset and the South West of England.',
+    cta: 'Visit TEA Architects',
+    url: 'https://tea-architects.co.uk/',
+    logo: 'logo-tea',
   },
   {
     id: 'elevated',
@@ -101,27 +113,18 @@ export const ecosystem = [
     mark: 'EL',
     text: 'Contemporary furniture and product design rooted in African contexts, materials and ideas — the same convictions, at the scale of the hand.',
     cta: 'Explore ELEvated',
-    url: null,
-  },
-  {
-    id: 'tea',
-    strand: 'Teach',
-    name: 'The Effective Architect',
-    short: 'TEA',
-    abbr: 'TEA',
-    mark: 'TEA',
-    text: 'An architecture education and media platform helping architects and built-environment professionals learn, grow and build better careers.',
-    cta: 'Learn with TEA',
-    url: null,
+    url: null, // TODO(client): ELEvated website not yet available
+    image: 'earth-dining',
   },
   {
     id: 'ako',
     strand: 'Teach',
     name: 'AKO Alliance',
     mark: 'AKO',
-    text: 'An initiative widening access to education and opportunity for children and young people.',
-    cta: 'Support AKO Alliance',
-    url: null,
+    text: 'Getting out-of-school children back into the classroom — funding tuition, books and uniforms through child sponsorship, partnerships and donations, and helping young adults build sustainable livelihoods.',
+    cta: 'Visit AKO Alliance',
+    url: 'https://akoalliance.com/',
+    logo: 'logo-ako',
   },
   {
     id: 'speaking',
@@ -151,7 +154,8 @@ export const ecosystem = [
     mark: 'A&F',
     text: 'A Christian youth movement focused on truth, healing, freedom, identity, purpose and life in Christ — a separate commitment to young people, held on its own terms.',
     cta: 'Discover Alive and Free',
-    url: null,
+    url: null, // TODO(client): supply URL
+    image: 'canopy',
   },
 ];
 
@@ -242,7 +246,7 @@ export const talks = {
 export const pathways = [
   { intent: 'Design or build a space', to: 'studio-coka' },
   { intent: 'Furniture and objects', to: 'elevated' },
-  { intent: 'Grow as an architect', to: 'tea' },
+  { intent: 'Work with an architect in the UK', to: 'tea' },
   { intent: 'Support young people’s education', to: 'ako' },
   { intent: 'Invite Crystal to speak', to: 'enquiry', label: 'Speaking enquiry' },
   { intent: 'Follow the ideas', href: social.instagram, label: 'Instagram' },

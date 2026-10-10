@@ -1,0 +1,36 @@
+/* Circular, echoing the monogram roundel; espresso with an ivory hairline so
+   it stays legible over both light and dark sections. */
+.back-to-top {
+  position: fixed;
+  right: clamp(1rem, 2.5vw, 2rem);
+  bottom: clamp(1rem, 2.5vw, 2rem);
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--espresso);
+  color: var(--ivory);
+  box-shadow: 0 0 0 1px rgb(247 243 237 / 0.35);
+  transition: background-color var(--dur-fast), color var(--dur-fast);
+}
+
+.back-to-top svg {
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background: var(--ivory);
+  color: var(--espresso);
+  box-shadow: 0 0 0 1px var(--espresso);
+}
+
+.back-to-top:hover svg {
+  transform: translateY(-3px);
+}
+
+.back-to-top:focus-visible {
+  outline-offset: 4px;
+}
