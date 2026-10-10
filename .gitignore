@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+*.log
+# Original high-resolution source assets (~120 MB). Optimised versions are
+# committed in public/images; keep the originals in shared storage instead.
+Images/

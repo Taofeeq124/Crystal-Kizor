@@ -1,0 +1,217 @@
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: var(--espresso);
+}
+
+.site-header__bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: var(--header-h);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+/* Background lives on a pseudo-element so it can fade without affecting text. */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--header-h);
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line-light);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.site-header.is-scrolled::before {
+  opacity: 1;
+}
+
+.site-header.is-hidden .site-header__bar,
+.site-header.is-hidden::before {
+  transform: translateY(-100%);
+}
+
+.site-header.is-open::before {
+  opacity: 0;
+}
+
+.site-header__logo {
+  display: block;
+  flex: none;
+  margin-right: auto;
+}
+
+.site-header__logo img {
+  width: clamp(150px, 14vw, 196px);
+  height: auto;
+}
+
+/* ---------- Desktop nav ---------- */
+
+.site-nav ul {
+  display: flex;
+  gap: clamp(1.25rem, 2.4vw, 2.5rem);
+}
+
+.site-nav__link,
+.site-header__cta {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.5rem;
+  font-size: var(--fs-label);
+  font-weight: 460;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.site-nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.15rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link[aria-current]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.site-header__cta {
+  padding: 0.85rem 1.2rem;
+  border: 1px solid var(--espresso);
+  transition: background-color var(--dur-fast), color var(--dur-fast);
+}
+
+.site-header__cta:hover,
+.site-header__cta:focus-visible {
+  background: var(--espresso);
+  color: var(--ivory);
+}
+
+/* ---------- Toggle ---------- */
+
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+}
+
+.menu-toggle__lines,
+.menu-toggle__lines::before {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--dur) var(--ease-out), top var(--dur) var(--ease-out);
+}
+
+.menu-toggle__lines {
+  top: 18px;
+}
+
+.menu-toggle__lines::before {
+  content: '';
+  left: 0;
+  right: 0;
+  top: 8px;
+}
+
+.is-open .menu-toggle__lines {
+  top: 22px;
+  transform: rotate(45deg);
+}
+
+.is-open .menu-toggle__lines::before {
+  top: 0;
+  transform: rotate(-90deg);
+}
+
+.is-open .site-header__bar {
+  color: var(--ivory);
+}
+
+/* ---------- Mobile menu ---------- */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  background: var(--espresso);
+  overflow-y: auto;
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: calc(var(--header-h) + 3rem);
+  padding-bottom: 2.5rem;
+}
+
+.mobile-menu__nav ol a {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--line-dark);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 10vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--ivory);
+}
+
+.mobile-menu__num {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--taupe);
+}
+
+.mobile-menu__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+}
+
+.mobile-menu__foot a {
+  padding-block: 0.6rem;
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ivory-soft);
+}
+
+@media (max-width: 959px) {
+  .site-nav,
+  .site-header__cta {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header.is-hidden .site-header__bar,
+  .site-header.is-hidden::before {
+    transform: none;
+  }
+}

@@ -1,0 +1,177 @@
+.contact {
+  padding-block: var(--section-y);
+  background: var(--sand);
+}
+
+.contact__grid {
+  display: grid;
+  gap: 3.5rem;
+}
+
+.contact__title {
+  margin-top: 2rem;
+  font-size: var(--fs-display);
+  font-weight: 350;
+}
+
+.contact__title em {
+  font-weight: 300;
+}
+
+.contact__lede {
+  max-width: 26rem;
+  margin-top: 1.75rem;
+  font-size: var(--fs-lead);
+}
+
+.contact__portrait {
+  display: none;
+  margin-top: 3.5rem;
+  aspect-ratio: 4 / 5;
+  max-width: 24rem;
+}
+
+.contact__portrait img {
+  object-position: 38% 50%;
+}
+
+/* ---------- Pathways ---------- */
+
+.pathways {
+  border-top: 1px solid var(--line-light);
+}
+
+.pathways li {
+  border-bottom: 1px solid var(--line-light);
+}
+
+.pathway {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: 0.35rem 0.75rem;
+  padding: 1.35rem 0;
+  isolation: isolate;
+  transition: color var(--dur) var(--ease-out), padding var(--dur) var(--ease-out);
+}
+
+/* Espresso fill rises behind the row on hover/focus. */
+.pathway::before {
+  content: '';
+  position: absolute;
+  inset: 0 calc(var(--gutter) * -0.5);
+  z-index: -1;
+  background: var(--espresso);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.pathway:hover,
+.pathway:focus-visible {
+  color: var(--ivory);
+}
+
+.pathway:hover::before,
+.pathway:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.pathway:focus-visible {
+  outline-offset: 2px;
+}
+
+.pathway__num {
+  grid-row: span 2;
+  padding-top: 0.3rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-muted);
+  transition: color var(--dur);
+}
+
+.pathway__intent {
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2.15rem);
+  line-height: 1.15;
+  color: inherit;
+}
+
+.pathway:not(:hover):not(:focus-visible) .pathway__intent {
+  color: var(--espresso);
+}
+
+.pathway__dest {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-muted);
+  transition: color var(--dur);
+}
+
+.pathway:hover .pathway__dest,
+.pathway:focus-visible .pathway__dest,
+.pathway:hover .pathway__num,
+.pathway:focus-visible .pathway__num {
+  color: var(--sand);
+}
+
+.signoff {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+}
+
+.signoff__signature {
+  width: clamp(200px, 22vw, 280px);
+  height: auto;
+}
+
+.signoff__link {
+  color: var(--espresso);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+@media (min-width: 960px) {
+  .contact__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 2.5vw, 3rem);
+  }
+
+  .contact__intro {
+    grid-column: 1 / span 5;
+  }
+
+  .contact__portrait {
+    display: block;
+  }
+
+  .contact__routes {
+    grid-column: 7 / -1;
+    padding-top: 2.75rem;
+  }
+
+  .pathway {
+    grid-template-columns: 3rem 1fr auto;
+    align-items: baseline;
+    padding: 1.6rem 0;
+  }
+
+  .pathway__num {
+    grid-row: auto;
+  }
+
+  .pathway:hover,
+  .pathway:focus-visible {
+    padding-inline: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pathway:hover,
+  .pathway:focus-visible {
+    padding-inline: 0;
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "portrait-studio": {
+    "width": 1024,
+    "height": 1536,
+    "color": "#483828",
+    "src": "/images/portrait-studio-1024.webp",
+    "srcSet": "/images/portrait-studio-720.webp 720w, /images/portrait-studio-1024.webp 1024w"
+  },
+  "portrait-editorial": {
+    "width": 1373,
+    "height": 1145,
+    "color": "#c8a898",
+    "src": "/images/portrait-editorial-1373.webp",
+    "srcSet": "/images/portrait-editorial-720.webp 720w, /images/portrait-editorial-1373.webp 1373w"
+  },
+  "portrait-desk": {
+    "width": 1374,
+    "height": 1145,
+    "color": "#683828",
+    "src": "/images/portrait-desk-1374.webp",
+    "srcSet": "/images/portrait-desk-720.webp 720w, /images/portrait-desk-1374.webp 1374w"
+  },
+  "portrait-confident": {
+    "width": 1374,
+    "height": 1145,
+    "color": "#382818",
+    "src": "/images/portrait-confident-1374.webp",
+    "srcSet": "/images/portrait-confident-720.webp 720w, /images/portrait-confident-1374.webp 1374w"
+  },
+  "portrait-podcast": {
+    "width": 1374,
+    "height": 1145,
+    "color": "#181818",
+    "src": "/images/portrait-podcast-1374.webp",
+    "srcSet": "/images/portrait-podcast-720.webp 720w, /images/portrait-podcast-1374.webp 1374w"
+  },
+  "home-front": {
+    "width": 1080,
+    "height": 1440,
+    "color": "#c8d8f8",
+    "src": "/images/home-front-1080.webp",
+    "srcSet": "/images/home-front-720.webp 720w, /images/home-front-1080.webp 1080w"
+  },
+  "home-cantilever": {
+    "width": 809,
+    "height": 1080,
+    "color": "#a89888",
+    "src": "/images/home-cantilever-809.webp",
+    "srcSet": "/images/home-cantilever-720.webp 720w, /images/home-cantilever-809.webp 809w"
+  },
+  "home-garden": {
+    "width": 795,
+    "height": 1062,
+    "color": "#c8c8d8",
+    "src": "/images/home-garden-795.webp",
+    "srcSet": "/images/home-garden-720.webp 720w, /images/home-garden-795.webp 795w"
+  },
+  "home-lounge": {
+    "width": 809,
+    "height": 1078,
+    "color": "#d8c8b8",
+    "src": "/images/home-lounge-809.webp",
+    "srcSet": "/images/home-lounge-720.webp 720w, /images/home-lounge-809.webp 809w"
+  },
+  "home-sitting": {
+    "width": 950,
+    "height": 1440,
+    "color": "#a88868",
+    "src": "/images/home-sitting-950.webp",
+    "srcSet": "/images/home-sitting-720.webp 720w, /images/home-sitting-950.webp 950w"
+  },
+  "home-stair": {
+    "width": 768,
+    "height": 1024,
+    "color": "#f8f8f8",
+    "src": "/images/home-stair-768.webp",
+    "srcSet": "/images/home-stair-720.webp 720w, /images/home-stair-768.webp 768w"
+  },
+  "home-facade": {
+    "width": 768,
+    "height": 1024,
+    "color": "#d8d8d8",
+    "src": "/images/home-facade-768.webp",
+    "srcSet": "/images/home-facade-720.webp 720w, /images/home-facade-768.webp 768w"
+  },
+  "earth-exterior": {
+    "width": 1024,
+    "height": 1024,
+    "color": "#181818",
+    "src": "/images/earth-exterior-1024.webp",
+    "srcSet": "/images/earth-exterior-720.webp 720w, /images/earth-exterior-1024.webp 1024w"
+  },
+  "earth-bedroom": {
+    "width": 980,
+    "height": 1080,
+    "color": "#583828",
+    "src": "/images/earth-bedroom-980.webp",
+    "srcSet": "/images/earth-bedroom-720.webp 720w, /images/earth-bedroom-980.webp 980w"
+  },
+  "earth-bath": {
+    "width": 867,
+    "height": 1080,
+    "color": "#684828",
+    "src": "/images/earth-bath-867.webp",
+    "srcSet": "/images/earth-bath-720.webp 720w, /images/earth-bath-867.webp 867w"
+  },
+  "cc-courtyard": {
+    "width": 2560,
+    "height": 3200,
+    "color": "#785838",
+    "src": "/images/cc-courtyard-1440.webp",
+    "srcSet": "/images/cc-courtyard-720.webp 720w, /images/cc-courtyard-1440.webp 1440w"
+  },
+  "cc-exterior": {
+    "width": 3840,
+    "height": 2877,
+    "color": "#88a8d8",
+    "src": "/images/cc-exterior-1440.webp",
+    "srcSet": "/images/cc-exterior-720.webp 720w, /images/cc-exterior-1440.webp 1440w"
+  },
+  "cc-gallery": {
+    "width": 2244,
+    "height": 2804,
+    "color": "#482818",
+    "src": "/images/cc-gallery-1440.webp",
+    "srcSet": "/images/cc-gallery-720.webp 720w, /images/cc-gallery-1440.webp 1440w"
+  },
+  "logo-horizontal": {
+    "width": 715,
+    "height": 50
+  },
+  "logo-primary": {
+    "width": 1029,
+    "height": 455
+  },
+  "logo-monogram": {
+    "width": 265,
+    "height": 208
+  },
+  "logo-signature": {
+    "width": 542,
+    "height": 170
+  },
+  "logo-circle": {
+    "width": 282,
+    "height": 284
+  }
+}

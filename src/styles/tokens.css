@@ -1,0 +1,44 @@
+/*
+ * Design tokens. Palette is sampled from the supplied logo collection;
+ * the text tones are darker derivations chosen to meet WCAG AA contrast.
+ */
+:root {
+  /* Colour */
+  --espresso: #271407;
+  --espresso-2: #33200f; /* raised surface on dark sections */
+  --ivory: #f7f3ed;
+  --sand: #e7ded3;
+  --taupe: #a99b8e;
+  --ink-soft: #5c4838; /* body text on light — 8:1 on ivory */
+  --ink-muted: #75624f; /* secondary text on light — 5.2:1 on ivory */
+  --ivory-soft: #d9cfc4; /* body text on dark — 11:1 on espresso */
+  --line-light: rgb(39 20 7 / 0.16);
+  --line-dark: rgb(247 243 237 / 0.16);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Jost Variable', 'Jost', 'Helvetica Neue', Arial, sans-serif;
+
+  --fs-hero: clamp(3.1rem, 1.4rem + 7vw, 8.75rem);
+  --fs-display: clamp(2.5rem, 1.5rem + 4vw, 5.25rem);
+  --fs-statement: clamp(1.75rem, 1.15rem + 2.3vw, 3.3rem);
+  --fs-h3: clamp(1.6rem, 1.25rem + 1.2vw, 2.4rem);
+  --fs-lead: clamp(1.075rem, 1rem + 0.3vw, 1.25rem);
+  --fs-body: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+  --tracking-label: 0.2em;
+
+  /* Space & layout */
+  --gutter: clamp(1.25rem, 4.5vw, 4.5rem);
+  --max: 1480px;
+  --section-y: clamp(5.5rem, 4rem + 8vw, 11rem);
+  --header-h: 4.5rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 220ms;
+  --dur: 450ms;
+  --dur-slow: 900ms;
+}

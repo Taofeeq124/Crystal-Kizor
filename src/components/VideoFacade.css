@@ -1,0 +1,74 @@
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #120902;
+  overflow: hidden;
+}
+
+.video iframe,
+.video__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video__poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: transform 1.4s var(--ease-out), opacity var(--dur);
+}
+
+.video__poster:hover img,
+.video__poster:focus-visible img {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.video__poster:focus-visible {
+  outline-offset: -6px;
+  outline-color: var(--ivory);
+}
+
+/* Circular play control — the circle echoes the monogram roundel. */
+.video__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: clamp(4.5rem, 9vw, 7rem);
+  aspect-ratio: 1;
+  border: 1px solid rgb(247 243 237 / 0.7);
+  border-radius: 50%;
+  color: var(--ivory);
+  transform: translate(-50%, -50%);
+  transition: background-color var(--dur), color var(--dur), transform var(--dur) var(--ease-out);
+}
+
+.video__play svg {
+  margin-left: 3px;
+}
+
+.video__poster:hover .video__play,
+.video__poster:focus-visible .video__play {
+  background: var(--ivory);
+  color: var(--espresso);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.video__label {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.1rem;
+  color: var(--ivory);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video__poster:hover img {
+    transform: none;
+  }
+}

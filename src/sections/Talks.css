@@ -1,0 +1,183 @@
+.talks {
+  padding-block: var(--section-y);
+}
+
+.talks__head {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.talks__event {
+  margin-top: 1.5rem;
+  color: var(--taupe);
+}
+
+.talks__title {
+  font-size: var(--fs-display);
+  font-weight: 350;
+}
+
+.talks__title em {
+  font-weight: 300;
+  color: var(--taupe);
+}
+
+.talks__intro {
+  max-width: 36rem;
+  font-size: var(--fs-lead);
+}
+
+.talks__video {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.talks__video-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 2rem;
+  margin-top: 1rem;
+  color: var(--taupe);
+}
+
+.talks__video-meta .arrow-link {
+  color: var(--ivory);
+}
+
+.talks__grid {
+  display: grid;
+  gap: 4.5rem;
+  margin-top: clamp(4.5rem, 9vw, 8rem);
+}
+
+/* ---------- Speaking ---------- */
+
+.speaking__title {
+  margin-bottom: 1.25rem;
+  font-size: var(--fs-h3);
+  line-height: 1.08;
+}
+
+.speaking > p {
+  max-width: 30rem;
+}
+
+.speaking__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-block: 2rem 2.5rem;
+}
+
+.speaking__topics li {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line-dark);
+  font-size: var(--fs-small);
+  color: var(--ivory);
+}
+
+.speaking .arrow-link {
+  color: var(--ivory);
+}
+
+/* ---------- Channels ---------- */
+
+.channels__title {
+  padding-bottom: 1rem;
+  color: var(--taupe);
+}
+
+.channels ul {
+  border-top: 1px solid var(--line-dark);
+}
+
+.channels li {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.channel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+  padding: 1.6rem 0;
+}
+
+.channel__source {
+  color: var(--taupe);
+}
+
+.channel__title {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.channel__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-small);
+  color: var(--ivory);
+}
+
+.channel__action svg {
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.channel:hover .channel__title,
+.channel:focus-visible .channel__title {
+  transform: translateX(0.5rem);
+}
+
+.channel:hover .channel__action svg,
+.channel:focus-visible .channel__action svg {
+  transform: translate(3px, -3px);
+}
+
+@media (min-width: 960px) {
+  .talks__head {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 2.5vw, 3rem);
+    align-items: end;
+  }
+
+  .talks__head .eyebrow,
+  .talks__event {
+    grid-column: 1 / -1;
+  }
+
+  .talks__title {
+    grid-column: 1 / span 7;
+  }
+
+  .talks__intro {
+    grid-column: 9 / -1;
+  }
+
+  .talks__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 2.5vw, 3rem);
+  }
+
+  .speaking {
+    grid-column: 1 / span 5;
+  }
+
+  .channels {
+    grid-column: 7 / -1;
+  }
+
+  .channel {
+    grid-template-columns: 9rem 1fr auto;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .channel:hover .channel__title {
+    transform: none;
+  }
+}

@@ -1,0 +1,231 @@
+.ecosystem {
+  --surround: var(--sand);
+  padding-block: var(--section-y);
+}
+
+.ecosystem__head {
+  display: grid;
+  gap: 2rem;
+}
+
+.ecosystem__title {
+  font-size: var(--fs-display);
+  font-weight: 350;
+}
+
+.ecosystem__title em {
+  font-weight: 300;
+  color: var(--taupe);
+}
+
+.ecosystem__intro {
+  max-width: 34rem;
+  font-size: var(--fs-lead);
+}
+
+.ecosystem__body {
+  margin-top: clamp(3.5rem, 7vw, 7rem);
+}
+
+/* ---------- Stage (desktop only) ---------- */
+
+.ecosystem__stage {
+  display: none;
+}
+
+.stage {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+}
+
+.stage__viewport {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: calc(100svh - var(--header-h) - 9rem);
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+}
+
+.stage__frame {
+  position: absolute;
+  inset: 0;
+}
+
+.stage__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage__mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--espresso-2);
+}
+
+/* A fine circle echoing the circular monogram in the logo collection. */
+.stage__ring {
+  position: absolute;
+  width: 62%;
+  aspect-ratio: 1;
+  border: 1px solid var(--line-dark);
+  border-radius: 50%;
+}
+
+.stage__letters {
+  position: relative;
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--ivory);
+}
+
+.stage__caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 1.1rem;
+  color: var(--taupe);
+}
+
+.stage__name {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--ivory);
+}
+
+/* ---------- Index list ---------- */
+
+.ecosystem__list {
+  border-top: 1px solid var(--line-dark);
+}
+
+.initiative {
+  position: relative;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.initiative__inner {
+  display: grid;
+  gap: 0.9rem;
+  padding-block: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+/* Active marker: a hairline that draws down the left edge. */
+.initiative::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--gutter) * -0.5);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--taupe);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.initiative.is-active::before {
+  transform: scaleY(1);
+}
+
+.initiative__strand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+  color: var(--taupe);
+}
+
+.initiative__role {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--line-dark);
+  color: var(--ivory-soft);
+}
+
+.initiative__name {
+  font-size: var(--fs-h3);
+  line-height: 1.05;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.initiative__abbr {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--taupe);
+}
+
+.initiative--core .initiative__name {
+  font-size: clamp(2.4rem, 1.6rem + 3vw, 4.25rem);
+}
+
+.initiative__text {
+  max-width: 34rem;
+}
+
+.initiative__cta {
+  justify-self: start;
+  color: var(--ivory);
+}
+
+.initiative__mobile-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-block: 0.5rem;
+}
+
+@media (min-width: 960px) {
+  .ecosystem__head {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0 clamp(1.5rem, 2.5vw, 3rem);
+    align-items: end;
+  }
+
+  .ecosystem__head .eyebrow {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+  }
+
+  .ecosystem__title {
+    grid-column: 1 / span 7;
+  }
+
+  .ecosystem__intro {
+    grid-column: 9 / -1;
+  }
+
+  .ecosystem__body {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0 clamp(1.5rem, 2.5vw, 3rem);
+  }
+
+  .ecosystem__stage {
+    display: block;
+    grid-column: 1 / span 5;
+  }
+
+  .ecosystem__list {
+    grid-column: 7 / -1;
+  }
+
+  .initiative__mobile-image {
+    display: none;
+  }
+
+  .initiative.is-active .initiative__name {
+    transform: translateX(0.75rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .initiative.is-active .initiative__name {
+    transform: none;
+  }
+}

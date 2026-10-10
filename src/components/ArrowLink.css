@@ -1,0 +1,112 @@
+.arrow-link {
+  --c: currentColor;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--fs-label);
+  font-weight: 480;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.arrow-link__icon {
+  flex: none;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.arrow-link:hover .arrow-link__icon,
+.arrow-link:focus-visible .arrow-link__icon {
+  transform: translateX(4px);
+}
+
+.arrow-link:hover .lucide-arrow-up-right,
+.arrow-link:focus-visible .lucide-arrow-up-right {
+  transform: translate(3px, -3px);
+}
+
+/* Text variant: hairline underline that redraws from the left on hover. */
+.arrow-link--text {
+  padding-block: 0.6rem;
+}
+
+.arrow-link--text .arrow-link__text {
+  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  padding-bottom: 0.4rem;
+  transition: background-size var(--dur) var(--ease-out);
+}
+
+.arrow-link--text:hover .arrow-link__text {
+  animation: underline-redraw var(--dur-slow) var(--ease-out);
+}
+
+@keyframes underline-redraw {
+  0% { background-size: 100% 1px; background-position: right bottom; }
+  45% { background-size: 0% 1px; background-position: right bottom; }
+  46% { background-size: 0% 1px; background-position: left bottom; }
+  100% { background-size: 100% 1px; background-position: left bottom; }
+}
+
+/* Solid variant: square-edged button with a fill that rises on hover. */
+.arrow-link--solid,
+.arrow-link--outline {
+  padding: 1.15rem 1.6rem;
+  border: 1px solid currentColor;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color var(--dur) var(--ease-out);
+}
+
+.arrow-link--solid {
+  background: var(--espresso);
+  border-color: var(--espresso);
+  color: var(--ivory);
+}
+
+.arrow-link--solid::before,
+.arrow-link--outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.arrow-link--solid::before {
+  background: var(--ink-soft);
+}
+
+.arrow-link--outline::before {
+  background: var(--espresso);
+}
+
+.theme-dark .arrow-link--outline::before {
+  background: var(--ivory);
+}
+
+.arrow-link--solid:hover::before,
+.arrow-link--outline:hover::before,
+.arrow-link--solid:focus-visible::before,
+.arrow-link--outline:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.arrow-link--outline:hover,
+.arrow-link--outline:focus-visible {
+  color: var(--ivory);
+}
+
+.theme-dark .arrow-link--outline:hover,
+.theme-dark .arrow-link--outline:focus-visible {
+  color: var(--espresso);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow-link--text:hover .arrow-link__text {
+    animation: none;
+  }
+}
